@@ -1,0 +1,7 @@
+base   whoisinyourhackspace
+author Tim Schumacher
+email  tim.daniel.schumacher@gmail.com
+date   2011-09-09
+name   whoisinyourhackspace plugin
+desc   Displays if someone is in your hackspace
+url    http://hackspace-jena.de/

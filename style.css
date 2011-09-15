@@ -1,0 +1,18 @@
+.ample {
+    display: block;
+    width: 200px;
+    height: 100px;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.not-available {
+    background-color: red;
+    color: white;
+}
