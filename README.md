@@ -2,8 +2,7 @@ whoisinyourhackspace Plugin for DokuWiki
 
 Displays if someone is in your hackspace
 
-All documentation for this plugin can be found at
-http://hackspace-jena.de/
+Uses the [SpaceAPI](http://spaceapi.net/) to display the status of your space.
 
 If you install this plugin manually, make sure it is installed in
 lib/plugins/whoisinyourhackspace/ - if the folder is called different it
