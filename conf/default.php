@@ -5,4 +5,4 @@
  * @author Tim Schumacher <tim.daniel.schumacher@gmail.com>
  */
 
-$conf['leasefile']    = '/tmp/leasefile';
+$conf['api_path']    = '';

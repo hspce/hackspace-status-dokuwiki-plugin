@@ -6,5 +6,5 @@
  */
 
 
-$meta['leasefile'] = array('the place where the leasefile resides');
+$meta['api_path'] = array('the place where your api resides');
 

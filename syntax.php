@@ -60,27 +60,19 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
         global $conf;
 
         if($mode != 'xhtml') return false;
-        $leasefile_path = $this->getConf('leasefile');
-        if (file_exists($leasefile_path)) {
-            $leasefile = file_get_contents($leasefile_path);
-            $count = preg_match_all('/(([0-9a-f]*):([0-9a-f]*):([0-9a-f]*):([0-9a-f]*):([0-9a-f]*):([0-9a-f]*))/i',$leasefile,$matches);
-            $class = '';
-            if ($count > 0) {
-              $class = "";
-            } else {
-              $class = "not-available";
-            }
-            if ($count > 1) {
-              $renderer->doc .= sprintf('<p class="ample available">Es sind %s Personen im Hackspace :)</p>', $count);
-            } else if ($count == 1) {
-              $renderer->doc .= sprintf('<p class="ample available">Es ist %s Person im Hackspace :)</p>', $count);
-            } else {
-              $renderer->doc .= sprintf('<p class="ample not-available">Es sind keine Personen im Hackspace :(</p>',$class, $count);
-            }
 
-          } else {
-            $renderer->doc .= '<p>No leasefile found</p>';
-          }
+        $api_path = $this->getConf('api_path');
+
+        $file = file_get_contents($api_path);
+
+        $api = json_decode($file);
+
+        if ($api->state->open) {
+            $renderer->doc .= '<p class="ample available">Der Krautspace ist besetzt :).</p>';
+        } else {
+            $renderer->doc .= '<p class="ample not-available">Der Krautspace ist nicht besetzt :(.</p>';
+        }
+
         return true;
     }
 }
