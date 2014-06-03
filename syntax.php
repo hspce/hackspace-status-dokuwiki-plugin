@@ -68,10 +68,12 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
         $api = json_decode($file);
 
         if ($api->state->open) {
-            $renderer->doc .= '<p class="ample available">Der Krautspace ist besetzt :).</p>';
+            $renderer->doc .= sprintf('<p class="ample available">%s ist besetzt :).</p>',$api->space);
         } else {
-            $renderer->doc .= '<p class="ample not-available">Der Krautspace ist nicht besetzt :(.</p>';
+            $renderer->doc .= sprintf('<p class="ample not-available">%s ist nicht besetzt :(.</p>',$api->space);
         }
+
+        $renderer->doc .= sprintf('<p><a href="http://spacestatus.bastinat0r.de/#%s">MOAH!</a></p>',strtolower($api->space));
 
         return true;
     }
