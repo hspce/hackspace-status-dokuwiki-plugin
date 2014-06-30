@@ -67,14 +67,28 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
 
         $api = json_decode($file);
 
+        $content = '';
+        $content .= '<div class="hackerspace-room-state">';
+        $content .= '<h3>Raumstatus</h3>';
+
+        //$content .= '<dl><dt>Status</dt>';
         if ($api->state->open) {
-            $renderer->doc .= sprintf('<p class="ample available">%s ist besetzt :).</p>',$api->space);
+            //$content .= '<dd>Offen</dd>';
+            $content .= "<img class=\"icon\" src=\"{$api->state->icon->open}\" alt=\"{$api->space} ist besetzt.\" title=\"{$api->space} ist besetzt.\" />";
+            $content .= "<p class=\"text\">{$api->space} ist besetzt.</p>";
+            //$renderer->doc .= sprintf('<p class="ample available">%s ist besetzt :).</p>',$api->space);
         } else {
-            $renderer->doc .= sprintf('<p class="ample not-available">%s ist nicht besetzt :(.</p>',$api->space);
+            //$renderer->doc .= sprintf('<p class="ample not-available">%s ist nicht besetzt :(.</p>',$api->space);
+            $content .= "<img class=\"icon\" src=\"{$api->state->icon->closed}\" alt=\"{$api->space} ist geschlossen.\" title=\"{$api->space} ist geschlossen.\" />";
+            $content .= "<p class=\"text\">{$api->space} ist geschlossen.</p>";
         }
 
-        $renderer->doc .= sprintf('<p><a href="http://spacestatus.bastinat0r.de/#%s">MOAH!</a></p>',strtolower($api->space));
+        $content .= '<hr />';
 
+        $content .= sprintf('<p><a href="http://spacestatus.bastinat0r.de/#%s">Raum-Öffnungs-Statistiken</a></p>',strtolower($api->space));
+        $content .= '</div>';
+
+        $renderer->doc .= $content;
         return true;
     }
 }

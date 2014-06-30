@@ -1,4 +1,4 @@
-.ample {
+/*.ample {
     display: block;
     width: 200px;
     height: 100px;
@@ -15,4 +15,30 @@
 .not-available {
     background-color: red;
     color: white;
+}*/
+
+div.hackerspace-room-state {
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    padding: 0.5rem;
+}
+
+div.hackerspace-room-state h3 {
+
+}
+
+div.hackerspace-room-state .icon {
+    display: inline;
+    width: 24px;
+    height: 24px;
+}
+
+div.hackerspace-room-state .text {
+    display: inline;
+    margin-left: 0.3rem;
+}
+
+div.hackerspace-room-state hr {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
