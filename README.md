@@ -1,8 +1,10 @@
-whoisinyourhackspace Plugin for DokuWiki
+# whoisinyourhackspace Plugin for DokuWiki
 
-Displays if someone is in your hackspace
+This plugin uses the [SpaceAPI](http://spaceapi.net/) of your hackerspace to display the current room state.
 
-Uses the [SpaceAPI](http://spaceapi.net/) to display the status of your space.
+## Install
+
+The best way is to put [wiyh] into the page :sidebar, but any other place is fine too.
 
 If you install this plugin manually, make sure it is installed in
 lib/plugins/whoisinyourhackspace/ - if the folder is called different it
@@ -12,7 +14,7 @@ Please refer to http://www.dokuwiki.org/plugins for additional info
 on how to install plugins in DokuWiki.
 
 ----
-Copyright (C) Tim Schumacher <tim.daniel.schumacher@gmail.com>
+Copyright (C) Tim Schumacher <tim@datenknoten.me>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
