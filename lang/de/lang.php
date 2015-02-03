@@ -6,10 +6,11 @@
  */
 
 // menu entry for admin plugins
-$lang['wiyh_heading'] = 'State';
-$lang['wiyh_open'] = 'is open.';
-$lang['wiyh_closed'] = 'is closed.';
-$lang['wiyh_stats'] = 'Stats';
+$lang['wiyh_heading'] = 'Raumstatus';
+$lang['wiyh_open'] = 'ist besetzt.';
+$lang['wiyh_closed'] = 'ist geschlossen.';
+$lang['wiyh_stats'] = 'Raumöffnungsstatistiken';
+
 
 
 

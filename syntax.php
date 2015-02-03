@@ -44,16 +44,7 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
 
 
     public function connectTo($mode) {
-        $this->Lexer->addSpecialPattern('<wiyh[^>]*>',$mode,'plugin_whoisinyourhackspace');
-    }
-
-    public function handle($match, $state, $pos, &$handler){
-      $return = array(
-                      'ample' => true
-                      );
-
-      $this->_checkOption($match, "/-ample/i", $return['ample'], true);
-      return $return;
+        $this->Lexer->addSpecialPattern('\[wiyh\]',$mode,'plugin_whoisinyourhackspace');
     }
 
     public function render($mode, &$renderer, $data) {
@@ -69,23 +60,19 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
 
         $content = '';
         $content .= '<div class="hackerspace-room-state">';
-        $content .= '<h3>Raumstatus</h3>';
+        $content .= "<h3>" . $this->getLang('wiyh_heading') . "</h3>";
 
-        //$content .= '<dl><dt>Status</dt>';
         if ($api->state->open) {
-            //$content .= '<dd>Offen</dd>';
             $content .= "<img class=\"icon\" src=\"{$api->state->icon->open}\" alt=\"{$api->space} ist besetzt.\" title=\"{$api->space} ist besetzt.\" />";
-            $content .= "<p class=\"text\">{$api->space} ist besetzt.</p>";
-            //$renderer->doc .= sprintf('<p class="ample available">%s ist besetzt :).</p>',$api->space);
+            $content .= "<p class=\"text\">{$api->space} " . $this->getLang('wiyh_open') . "</p>";
         } else {
-            //$renderer->doc .= sprintf('<p class="ample not-available">%s ist nicht besetzt :(.</p>',$api->space);
             $content .= "<img class=\"icon\" src=\"{$api->state->icon->closed}\" alt=\"{$api->space} ist geschlossen.\" title=\"{$api->space} ist geschlossen.\" />";
-            $content .= "<p class=\"text\">{$api->space} ist geschlossen.</p>";
+            $content .= "<p class=\"text\">{$api->space} " . $this->getLang('wiyh_closed') . "</p>";
         }
 
         $content .= '<hr />';
 
-        $content .= sprintf('<p><a href="http://spacestatus.bastinat0r.de/#%s">Raum-Öffnungs-Statistiken</a></p>',strtolower($api->space));
+        $content .= sprintf('<p><a href="http://spaceapi-stats.n39.eu/#%s">'.$this->getLang('wiyh_stats').'</a></p>',strtolower($api->space));
         $content .= '</div>';
 
         $renderer->doc .= $content;
