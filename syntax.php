@@ -71,8 +71,7 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
         }
 
         $content .= '<hr />';
-
-        $content .= sprintf('<p><a href="http://spaceapi-stats.n39.eu/#%s">'.$this->getLang('wiyh_stats').'</a></p>',strtolower($api->space));
+        $content .= sprintf('<p><a href="http://spaceapi-stats.n39.eu/#%s">'.$this->getLang('wiyh_stats').'</a></p>',str_replace(' ','',strtolower($api->space)));
         $content .= '</div>';
 
         $renderer->doc .= $content;

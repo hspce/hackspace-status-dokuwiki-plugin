@@ -5,6 +5,7 @@ This plugin uses the [SpaceAPI](http://spaceapi.net/) of your hackerspace to dis
 ## Install
 
 The best way is to put [wiyh] into the page :sidebar, but any other place is fine too.
+Use ~~NOCACHE~~ in page where is plugin.
 
 If you install this plugin manually, make sure it is installed in
 lib/plugins/whoisinyourhackspace/ - if the folder is called different it
