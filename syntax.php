@@ -65,9 +65,12 @@ class syntax_plugin_whoisinyourhackspace extends DokuWiki_Syntax_Plugin {
         if ($api->state->open) {
             $content .= "<img class=\"icon\" src=\"{$api->state->icon->open}\" alt=\"{$api->space} ist besetzt.\" title=\"{$api->space} ist besetzt.\" />";
             $content .= "<p class=\"text\">{$api->space} " . $this->getLang('wiyh_open') . "</p>";
+            $content .= "<p class=\"text\"> Od: ".date("d.m.Y H:i",$api->state->lastchange)."</p>";        
         } else {
             $content .= "<img class=\"icon\" src=\"{$api->state->icon->closed}\" alt=\"{$api->space} ist geschlossen.\" title=\"{$api->space} ist geschlossen.\" />";
             $content .= "<p class=\"text\">{$api->space} " . $this->getLang('wiyh_closed') . "</p>";
+            $content .= "<p class=\"text\"> Od:".date("d.m.Y H:i",$api->state->lastchange)."</p>";    
+
         }
 
         $content .= '<hr />';
